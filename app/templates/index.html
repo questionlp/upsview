@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if devices %}
+<table class="pure-table pure-table-bordered">
+    <colgroup>
+        <col class="label">
+        {% for device in devices %}
+        <col class="device">
+        {% endfor %}
+    </colgroup>
+    <thead>
+        <tr>
+            <td scope="col">&nbsp;</td>
+            {% for device in devices %}
+            <td scope="col">{{ device|trim }}</td>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for field in mappings %}
+        <tr>
+            <td>{{ mappings[field]|trim }}</td>
+            {% for device in devices %}
+            <td>{{ devices[device][field]|trim }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td scope="col">&nbsp;</td>
+            {% for device in devices %}
+            <td scope="col">{{ device|trim }}</td>
+            {% endfor %}
+        </tr>
+    </tfoot>
+</table>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UPS Information</title>
+
+    <!-- Import Pure CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pure-min.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.svg') }}">
+    <!-- Import Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% endblock head %}
+</head>
+
+<body>
+<header>
+    <h1>UPS Information</h1>
+</header>
+
+<main>
+    {% block main %}
+    {% block content %}{% endblock %}
+    {% endblock main %}
+</main>
+
+<footer>
+    <div id="timestamp">R: {{ rendered_at }}</div>
+</footer>
+</body>
+</html>

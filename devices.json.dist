@@ -1,0 +1,12 @@
+{
+    "devices": [
+        {
+            "alias": "ups",
+            "host": "",
+            "port": 3493,
+            "login": "",
+            "password": ",
+            "ups_name": ""
+        }
+    ]
+}
