@@ -4,6 +4,7 @@ venv/
 # Ignore the default configuration files
 .env
 devices.json
+mappings.json
 gunicorn.conf.py
 
 # Ignore uWSGI configuration and related files
