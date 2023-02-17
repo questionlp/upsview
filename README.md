@@ -1,6 +1,6 @@
 # nutters
 
-**nutters** is a simple web application built using Flask that displays UPS information polled from systems that run the Network UPS Tools monitoring daemon. The web application prints out a table listing out each device configured (one per column).
+**nutters** is a simple web application built using [Flask](https://flask.palletsprojects.com/) that displays UPS information polled from systems that run the [Network UPS Tools](https://networkupstools.org/) monitoring daemon. The web application prints out a table listing out each device configured (one per column).
 
 ## Set Up
 
@@ -35,7 +35,7 @@ If you would like to modify any of the mappings, make a copy of the default mapp
 
 ### Configuring Gunicorn
 
-Gunicorn can take configuration options either as command line arguments or it can load configuration options from a `gunicorn.conf.py` file located in the same directory that Gunicorn is launched from.
+[Gunicorn](https://gunicorn.org/) can take configuration options either as command line arguments or it can load configuration options from a `gunicorn.conf.py` file located in the same directory that Gunicorn is launched from.
 
 A template configuration file is included in the repository called `gunicorn.conf.py.dist`. A copy of that file should be made and named `gunicorn.conf.py` and the configuration options reviewed. The following options may need to be changed depending on the environment in which the application is being deployed:
 
