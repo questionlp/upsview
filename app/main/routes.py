@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: set noai syntax=python ts=4 sw=4:
+# SPDX-License-Identifier: MIT
 #
-# Copyright (c) 2022 Linh Pham
+# Copyright (c) 2022-2023 Linh Pham
+# nutters is released under the terms of the MIT License
 """Main Routes for Nutters Web Application"""
 from datetime import datetime
 from flask import Blueprint, Response, current_app, render_template, send_file
