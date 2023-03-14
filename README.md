@@ -18,6 +18,8 @@ Replace `venv` with the name of the virtual environment directory in the above c
 
 To define which devices that will be queried by **nutters**, make a copy of the `devices.json.dist` file named `devices.json`. For each device that you want to poll, fill in the following configuration key/value pairs:
 
+| Key Name | Description |
+| -------- | ----------- |
 | alias | Friendly name of the UPS |
 | host | Hostname or IP address of the system running the Network UPS Tools daemon |
 | port | The port that the Network UPS Tools daemon is listening on |
