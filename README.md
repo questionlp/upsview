@@ -2,6 +2,8 @@
 
 **upsview** is a simple web application built using [Flask](https://flask.palletsprojects.com/) that displays UPS information polled from systems that run the [Network UPS Tools](https://networkupstools.org/) monitoring daemon. The web application prints out a table listing out each device configured (one per column).
 
+**Note:** This project has been renamed since version v1.0.0 and upgrading to the current version and codebase requires changing various configuration files to reflect the new application name. Please review the **Hosting** section of this document for configuration file changes.
+
 ## Set Up
 
 It is recommended that you use virtual environments to install application dependencies and run the application from. After you set up and activate the virtual environment, run the following command to install the required packages.
