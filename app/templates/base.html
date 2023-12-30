@@ -4,7 +4,7 @@
     {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UPS Information</title>
+    <title>UPS Information Viewer</title>
 
     <!-- Import Pure CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pure-min.css') }}">
@@ -18,7 +18,7 @@
 
 <body>
 <header>
-    <h1>UPS Information</h1>
+    <h1>UPS Information Viewer</h1>
 </header>
 
 <main>
@@ -28,7 +28,8 @@
 </main>
 
 <footer>
-    <div id="timestamp">R: {{ rendered_at }}</div>
+    <div id="timestamp">R: {{ rendered_at }}</div> |
+    <div id="version">V: {{ app_version }}</div>
 </footer>
 </body>
 </html>

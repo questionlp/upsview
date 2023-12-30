@@ -1,5 +1,5 @@
 [Unit]
-Description=Nutters Web Application
+Description=UPS Information Viewer Web Application
 After=network.target
 
 [Service]
@@ -16,7 +16,7 @@ Environment="PATH="
 
 ; Also add the full path to the application's venv/bin directory
 ; before 'gunicorn'
-ExecStart=gunicorn nutters:app
+ExecStart=gunicorn upsview:app
 
 ; Uncomment the following two lines to enable auto-restart
 ; on application failure

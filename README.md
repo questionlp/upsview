@@ -1,13 +1,13 @@
-# nutters
+# UPS Information Viewer (upsview)
 
-**nutters** is a simple web application built using [Flask](https://flask.palletsprojects.com/) that displays UPS information polled from systems that run the [Network UPS Tools](https://networkupstools.org/) monitoring daemon. The web application prints out a table listing out each device configured (one per column).
+**upsview** is a simple web application built using [Flask](https://flask.palletsprojects.com/) that displays UPS information polled from systems that run the [Network UPS Tools](https://networkupstools.org/) monitoring daemon. The web application prints out a table listing out each device configured (one per column).
 
 ## Set Up
 
 It is recommended that you use virtual environments to install application dependencies and run the application from. After you set up and activate the virtual environment, run the following command to install the required packages.
 
 ```bash
-venv/bin/python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 Replace `venv` with the name of the virtual environment directory in the above command.
@@ -16,7 +16,7 @@ Replace `venv` with the name of the virtual environment directory in the above c
 
 ### Devices
 
-To define which devices that will be queried by **nutters**, make a copy of the `devices.json.dist` file named `devices.json`. For each device that you want to poll, fill in the following configuration key/value pairs:
+To define which devices that will be queried by **upsview**, make a copy of the `devices.json.dist` file named `devices.json`. For each device that you want to poll, fill in the following configuration key/value pairs:
 
 | Key Name | Description |
 | -------- | ----------- |
@@ -42,7 +42,7 @@ If you would like to modify any of the mappings, make a copy of the default mapp
 A template configuration file is included in the repository called `gunicorn.conf.py.dist`. A copy of that file should be made and named `gunicorn.conf.py` and the configuration options reviewed. The following options may need to be changed depending on the environment in which the application is being deployed:
 
 * `bind`: The template defaults to using a UNIX socket file at
-`/tmp/gunicorn-nutters.sock` as the listener. If TCP socket is preferred, change the value to `IP:PORT` (replacing `IP` and `PORT` with the appropriate IP address of the interface and TCP port to listen to)
+`/tmp/gunicorn-upsview.sock` as the listener. If TCP socket is preferred, change the value to `IP:PORT` (replacing `IP` and `PORT` with the appropriate IP address of the interface and TCP port to listen to)
 * `workers`: The number of processes that are created to handle requests.
 * `accesslog`: The file that will be used to write access log entries to. Change the value from a string to `None` to disable access logging if that'll be handled by NGINX or a front-end HTTP server.
 * `errorlog`: The file that will be used to write error log entries to. Change the value from a string to `None` to disable error logging (not recommended). The directory needs to be created before running the application.
@@ -51,9 +51,9 @@ For more information on the above configuration options and other configuration 
 
 ### Setting up a Gunicorn systemd Service
 
-A template `systemd` service file is included in the repository named `gunicorn-nutters.service.dist`. That service file provides the commands and arguments used to start a Gunicorn instance to serve up the application. A copy of that template file can be modified and installed under `/etc/systemd/system`.
+A template `systemd` service file is included in the repository named `gunicorn-upsview.service.dist`. That service file provides the commands and arguments used to start a Gunicorn instance to serve up the application. A copy of that template file can be modified and installed under `/etc/systemd/system`.
 
-For this document, the service file will be installed as `gunicorn-nutters.service` and the service name will be `gunicorn-nutters`. The service file name, thus the service name, can be changed to meet your needs and requirements.
+For this document, the service file will be installed as `gunicorn-upsview.service` and the service name will be `gunicorn-upsview`. The service file name, thus the service name, can be changed to meet your needs and requirements.
 
 You will need to modify the following items in the new service file:
 
@@ -66,14 +66,14 @@ You will need to modify the following items in the new service file:
 Save the file and run the following commands to enable and start the new service:
 
 ```bash
-sudo systemctl enable gunicorn-nutters
-sudo systemctl start gunicorn-nutters
+sudo systemctl enable gunicorn-upsview
+sudo systemctl start gunicorn-upsview
 ```
 
 Verify that the service started by running the following command:
 
 ```bash
-sudo systemctl status gunicorn-nutters
+sudo systemctl status gunicorn-upsview
 ```
 
 ### Serving the Application Through NGINX
@@ -83,8 +83,8 @@ Once the service is up and running, NGINX can be configured to proxy requests to
 Add the following NGINX configuration snippet either to your base `nginx.conf` or to a virtual site configuration file. The configuration settings provides a starting point for serving up the application.
 
 ```nginx
-upstream gunicorn-nutters {
-    server unix:/tmp/gunicorn-nutters.sock fail_timeout=0;
+upstream gunicorn-upsview {
+    server unix:/tmp/gunicorn-upsview.sock fail_timeout=0;
 }
 
 server {
@@ -94,7 +94,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header Host $http_host;
         proxy_redirect off;
-        proxy_pass http://gunicorn-nutters;
+        proxy_pass http://gunicorn-upsview;
     }
 }
 ```

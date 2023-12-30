@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # vim: set noai syntax=python ts=4 sw=4:
 # SPDX-License-Identifier: MIT
 #
 # Copyright (c) 2022-2023 Linh Pham
-# nutters is released under the terms of the MIT License
-"""Gunicorn Configuration File"""
+# upsview is released under the terms of the MIT License
+"""Gunicorn Configuration File."""
 
 # Make a copy of this file and name it `gunicorn.conf.py` in order
 # for it to be picked up by Gunicorn upon startup. Update any of
@@ -15,7 +14,7 @@
 # refer to the Gunicorn documentation site at:
 # https://docs.gunicorn.org/en/stable/settings.html#config-file
 
-bind = "unix:/tmp/gunicorn-nutters.sock"
+bind = "unix:/tmp/gunicorn-upsview.sock"
 workers = 4
 accesslog = "_log/access.log"
 errorlog = "_log/error.log"

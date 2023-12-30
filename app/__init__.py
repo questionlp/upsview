@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
 # vim: set noai syntax=python ts=4 sw=4:
 # SPDX-License-Identifier: MIT
 #
 # Copyright (c) 2022-2023 Linh Pham
-# nutters is released under the terms of the MIT License
-"""Core Application for Nutters Web Application"""
+# upsview is released under the terms of the MIT License
+"""Core Application for upsview Web Application."""
 from flask import Flask
 
-from app import devices, mappings, utility
+from app import devices, mappings
 from app.errors import handlers
-from app.main.routes import blueprint as main_bp
 from app.main.redirects import blueprint as redirects_bp
+from app.main.routes import blueprint as main_bp
 from app.version import APP_VERSION
 
 

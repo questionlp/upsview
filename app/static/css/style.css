@@ -73,4 +73,8 @@
         line-height: 1.25rem;
         margin-top: 1.5rem;
     }
+
+    footer #timestamp, footer #version {
+        display: inline-block;
+    }
 }

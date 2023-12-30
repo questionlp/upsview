@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # vim: set noai syntax=python ts=4 sw=4:
 # SPDX-License-Identifier: MIT
 #
 # Copyright (c) 2022-2023 Linh Pham
-# nutters is released under the terms of the MIT License
-"""Mappings File Loading for Nutters Web Application"""
+# upsview is released under the terms of the MIT License
+"""Mappings File Loading for upsview Web Application."""
 import json
 from pathlib import Path
 from typing import Any, Dict
@@ -22,7 +21,7 @@ def load_mappings(
             return None
 
     if Path(mapping_file_path).exists():
-        with open(mapping_file_path, "r") as mapping_file:
+        with Path(mapping_file_path).open(mode="r", encoding="utf-8") as mapping_file:
             mappings = json.load(mapping_file)
 
         if "mappings" in mappings:

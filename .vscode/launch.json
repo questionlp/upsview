@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "${workspaceRoot}/nutters.py",
+                "FLASK_APP": "${workspaceRoot}/upsview.py",
                 "FLASK_ENV": "development",
                 "FLASK_RUN_PORT": "8000",
                 "FLASK_DEBUG": "0"
