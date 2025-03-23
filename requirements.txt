@@ -1,4 +1,4 @@
-Flask==3.0.3
-gunicorn==22.0.0
+Flask==3.1.0
+gunicorn==23.0.0
 pytz>=2024.1
 nut2==2.1.1
