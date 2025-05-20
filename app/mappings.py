@@ -1,17 +1,18 @@
 # vim: set noai syntax=python ts=4 sw=4:
 # SPDX-License-Identifier: MIT
 #
-# Copyright (c) 2022-2023 Linh Pham
+# Copyright (c) 2022-2025 Linh Pham
 # upsview is released under the terms of the MIT License
 """Mappings File Loading for upsview Web Application."""
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 
 def load_mappings(
     mapping_file_path: str = "mappings.json",
-) -> Dict[str, Dict[str, Any]]:
+) -> dict[str, dict[str, Any]]:
+    """Load property mapping JSON file."""
     fallback_mapping_file = "mappings.json.dist"
 
     if mapping_file_path and not Path(mapping_file_path).exists():

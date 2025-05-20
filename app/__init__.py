@@ -1,7 +1,7 @@
 # vim: set noai syntax=python ts=4 sw=4:
 # SPDX-License-Identifier: MIT
 #
-# Copyright (c) 2022-2023 Linh Pham
+# Copyright (c) 2022-2025 Linh Pham
 # upsview is released under the terms of the MIT License
 """Core Application for upsview Web Application."""
 from flask import Flask
@@ -14,6 +14,7 @@ from app.version import APP_VERSION
 
 
 def create_app():
+    """Create and initialize Flask app."""
     app = Flask(__name__)
     app.url_map.strict_slashes = False
 
